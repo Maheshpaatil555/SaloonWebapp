@@ -46,8 +46,8 @@ function Header() {
             </div>
 
             {/* Mobile Header */}
-            <div className="flex md:hidden h-[70px] px-4 justify-between items-center fixed top-0 w-full bg-[#f8f2f2]  z-[999] ">
-                <img className="h-14" src="./assist/Logos.png" alt="logo" />
+            <div className="flex md:hidden h-[70px] px-4 pr-5 justify-between items-center fixed top-0 w-full bg-[#f8f2f2]  z-[999] ">
+                <img className="h-16" src="./assist/Logos.png" alt="logo" />
                 <button className='text-[#5f433e]' onClick={toggleMobileMenu}>
                     {isMobileMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
                 </button>

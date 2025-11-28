@@ -16,7 +16,7 @@ function Review() {
   return (
     <div className="container mx-auto">
       <Hero title='Review'/>
-      <div className="grid md:px-60 px-3 mb-20 mt-20 grid-cols-1 md:grid-cols-1 gap-8">
+      <div className="grid md:px-60 px-5 mb-11 mt-11 grid-cols-1 md:grid-cols-1 gap-8">
         {reviews.map((review, index) => (
           <div
             key={review.id}
@@ -45,7 +45,7 @@ function Review() {
             <p className="text-[#895e58] text-xs font-desc md:text-lg leading-relaxed">{review.message}</p>
           </div>
         ))}
-        <div className="flex justify-center mt-5">
+        <div className="flex justify-center mt-3">
             <NavLink to='https://www.google.com/maps/dir//Shop+No-1-2,+Bhagyodaya+House,+Guru+Nanak+Marg,+opposite+Patel+Party+Plot,+Moti+Tamboli,+Sultanpura,+Vadodara,+Gujarat+390001/@21.1686663,72.8633633,2261m/data=!3m1!1e3!4m8!4m7!1m0!1m5!1m1!1s0x395fc8acd8cf46b9:0x6f189f0812c93ec!2m2!1d73.2034437!2d22.2945775!5m1!1e2?entry=ttu&g_ep=EgoyMDI1MTEyMy4xIKXMDSoASAFQAw%3D%3D'>
           <button className="text-[#5f433e] border font-desc font-semibold border-gray-400 px-16 py-2 rounded transition duration-300 hover:bg-[#5f433e] hover:text-white">
             View More

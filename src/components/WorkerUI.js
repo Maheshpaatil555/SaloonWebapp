@@ -16,7 +16,7 @@ export default function WorkerUI() {
 
 
   return (
-    <div className="w-full bg-[#f9f8f7] text-[#5f433e] p-6 pb-3 rounded-2xl  border border-gray-200">
+    <div className="w-full bg-[#f9f8f7] text-[#5f433e] p-6 pb-3 -mt-1 md:-mt-0 rounded-2xl  border border-gray-200">
 
       <h1 className="text-2xl font-head text-[#5f433e] mb-4">Workers</h1>
 
@@ -24,7 +24,7 @@ export default function WorkerUI() {
         {workers.map((w, i) => (
           <div
             key={i}
-            className="bg-white border p-3 rounded-xl shadow-sm flex flex-col items-center text-center"
+            className="bg-slate-50 border p-3 rounded-xl shadow-sm flex flex-col items-center text-center"
           >
             <img
               src='/user.png'

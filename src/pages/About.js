@@ -3,7 +3,7 @@ import Hero from "../components/Hero";
 
 function About() {
   return (
-    <div className="mb-8">
+    <div className="mb-2">
      <Hero title="ABOUT" bgImage="/assist/banner.jpg" />
       <div className="w-full px-6 md:px-0 min-h-screen flex justify-center items-center">
         <div className="w-full mt-8 md:rounded-se-[200px] rounded-ss-[100px] rounded-se-[100px] 
@@ -39,7 +39,7 @@ function About() {
             </span>
             <div className="mt-1 text-gray-700 leading-relaxed text-lg">
               <div className="text-xl pt-8 line-through decoration-[1px]  font-bold">WELCOME TO OUR WEBSITE!</div>
-              <p className=" mt-4 font-desc font-semibold text-[#895e58]">
+              <p className=" mt-4 font-desc text-base md:text-lg font-semibold text-[#895e58]">
                 We are dedicated to providing the best service possible. Our team works tirelessly to ensure that our
                 clients have the best experience and receive top-quality results. We believe in innovation, creativity,
                 and excellence in every project we undertake. Thank you for visiting and learning more about us.

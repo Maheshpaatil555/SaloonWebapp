@@ -45,7 +45,7 @@ function Contact() {
   };
 
   return (
-    <div className="mb-8">
+    <div className="mb-2">
       <Hero title={"CONTACT"} bgImage="/assist/baan.jpg" />
 
       <div className="w-full px-6 md:px-0 min-h-screen flex justify-center items-center">

@@ -25,7 +25,7 @@ export default function Footer() {
 
                 {/* Quicklinks & Social Platform */}
                 <div>
-                    <h2 className="text-3xl font-head text-[#5f433e] mb-2">Quicklinks</h2>
+                    <h2 className="text-2xl md:text-3xl font-head text-[#5f433e] mb-2">Quicklinks</h2>
                     <div className="w-12 h-[2px] bg-[#6f5450] mb-4"></div>
 
                     <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 gap-2">
@@ -37,7 +37,7 @@ export default function Footer() {
                         <Link to="/gallery" className="nav-link">Gallery</Link>
                     </div>
 
-                    <h2 className="text-3xl mt-10 font-head text-[#5f433e] mb-2">Social Platform</h2>
+                    <h2 className="text-2xl md:text-3xl mt-10 font-head text-[#5f433e] mb-2">Social Platform</h2>
                     <div className="w-12 h-[2px] bg-[#6f5450] mb-4"></div>
 
                     <div className="flex gap-4 mt-2">
@@ -63,7 +63,7 @@ export default function Footer() {
                 </div>
 
                 <div>
-                    <h2 className="text-3xl font-head text-[#5f433e] mb-2">Contacts</h2>
+                    <h2 className="text-2xl md:text-3xl font-head text-[#5f433e] mb-2">Contacts</h2>
                     <div className="w-12 h-[2px] bg-[#6f5450] mb-4"></div>
 
                     <p className="text-2xl text-[#6f5450] mt-2 font-semibold"><FaWhatsapp /></p>

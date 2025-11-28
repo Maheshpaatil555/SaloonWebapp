@@ -1,7 +1,7 @@
 function Hero({ title, bgImage }) {
   return (
     <div
-      className="relative text-center md:mt-32 mb-10 mt-28 text-white py-20 md:py-20 font-hero font-bold text-2xl md:text-4xl"
+      className="relative text-center md:mt-32  mb-4 mt-28 text-white py-20 md:py-20 font-hero font-bold text-2xl md:text-4xl"
       style={{
         backgroundImage: `url(${bgImage})`,
         backgroundSize: 'cover',

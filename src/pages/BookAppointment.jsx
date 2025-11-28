@@ -11,8 +11,8 @@ export default function BookAppointment(){
   const [selectedStart, setSelectedStart] = useState({date:"", time:""});
   return (
     <div>
-  <Hero title="BOOK YOUR APPOINTMENT" bgImage="/poster3.jpg" />
-    <div className="p-6  max-w-5xl pt-8 mb-11  mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
+  <Hero title="BOOK  APPOINTMENT" bgImage="/poster3.jpg" />
+    <div className="p-6 max-w-5xl pt-6 mb-5  mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
       <div className="lg:col-span-2 space-y-4">
         <DateTimePicker bookings={bookings} onSelect={setSelectedStart} />
         <ServiceSelector />
