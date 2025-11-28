@@ -2,7 +2,6 @@ import React from 'react';
 import Hero from '../components/Hero';
 
 function Gallery() {
-  // Array of 20 images
   const images = Array.from({ length: 6 }, (_, i) => `/assist/gallery/img${i + 1}.jpg`);
 
   return (

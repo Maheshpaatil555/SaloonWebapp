@@ -33,11 +33,11 @@ function SliderGallery() {
 
   return (
     <div className=" text-white relative">
-      <div className="flex justify-between p-8 pb-3 ps-0 items-center" >
-         <h2 className="text-2xl md:text-4xl text-black  font-title ">
+      <div className="flex justify-between md:p-8 md:pb-3 md:ps-0 md:pr-0 p-4 pr-5 py-6 pb-1 items-center" >
+         <h2 className="text-xl md:text-4xl font-head text-[#5f433e] ">
         GALLERY
       </h2>
-    <NavLink to='./Gallery'><p className="text-slate-950 font-mono">view More</p></NavLink>
+    <NavLink to='./Gallery'><p className="text-slate-950 text-base md:text-lg font-desc">view more</p></NavLink>
 
       </div>
      
@@ -64,7 +64,7 @@ function SliderGallery() {
 
                 <img
                   src={movie.poster_path}
-                  className="w-full h-48 md:h-80 rounded-2xl object-cover group-hover:grayscale duration-300"
+                  className="w-full h-40 md:h-80 rounded-2xl object-cover group-hover:grayscale duration-300"
                 />
 
                 {/* <div className="absolute bottom-5 inset-0 flex items-end p-3 bg-gradient-to-t from-black/80">

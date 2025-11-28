@@ -18,7 +18,7 @@ export default function WorkerUI() {
   return (
     <div className="w-full bg-[#f9f8f7] text-[#5f433e] p-6 pb-3 rounded-2xl  border border-gray-200">
 
-      <h1 className="text-2xl font-bold text-gray-800 mb-4">Workers</h1>
+      <h1 className="text-2xl font-head text-[#5f433e] mb-4">Workers</h1>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 gap-2 max-h-[286px]  overflow-y-auto pr-2 mb-6">
         {workers.map((w, i) => (
@@ -31,8 +31,8 @@ export default function WorkerUI() {
               alt={w.name}
               className="w-16 h-16 rounded-full object-cover"
             />
-            <h2 className="mt-2 font-semibold text-gray-800 text-sm">{w.name}</h2>
-            <p className="text-gray-500 text-xs">{w.job}</p>
+            <h2 className="mt-2 font-semibold font-desc text-[#895e58] text-sm">{w.name}</h2>
+            <p className="text-gray-400 font-desc text-xs">{w.job}</p>
           </div>
         ))}
       </div>     

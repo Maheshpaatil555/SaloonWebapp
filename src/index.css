@@ -2,11 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Default background + text color for the whole app */
 body {
   background-color: white;
   color: white;
 }
+
+.nav-link {
+  @apply text-[#895e58] font-desc hover:ps-1 font-semibold cursor-pointer transition-all duration-300;
+}
+.mobile-header {
+  @apply px-4 py-3  font-desc font-semibold  text-lg transition;
+
+}
+
 
 @keyframes slideIn {
   0% { opacity: 0; transform: translateY(20px); }

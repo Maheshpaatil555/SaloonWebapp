@@ -29,7 +29,7 @@ function Slider() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <div className="w-full  mt-[70px] md:mt-24 bg-white md:px-10 relative" >
+    <div className="w-full p-3 md:p-0  mt-[100px] md:mt-24 bg-white md:px-10 relative" >
       <Swiper
         modules={[Navigation, Autoplay]}
         navigation={{
@@ -39,7 +39,7 @@ function Slider() {
         autoplay={{ delay: 5000, disableOnInteraction: false }}
         loop={true}
         onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-        className="w-full h-[40vh]  md:rounded-xl sm:h-[50vh] md:h-[100vh] lg:h-[calc(96vh-85px)]"
+        className="w-full h-[40vh]  rounded-xl sm:h-[50vh] md:h-[100vh] lg:h-[calc(96vh-85px)]"
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
@@ -49,9 +49,9 @@ function Slider() {
             >
               <h2
                 className={`text-black
-               mt-10 
-              text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 
-              font-bold mb-4 leading-snug 
+               mt-16
+              text-xl sm:text-2xl  md:text-3xl lg:text-4xl xl:text-5xl 
+              font-hero mb-2 md:mb-3 leading-snug 
               max-w-[90%] sm:max-w-[80%] md:max-w-[70%] 
               drop-shadow-xl transition-opacity duration-700 
               ${activeIndex === index ? "opacity-100 animate-slideIn" : "opacity-0"}`}
@@ -62,7 +62,7 @@ function Slider() {
 
               <p
                 className={`text-black
-              text-sm sm:text-base md:text-xl lg:text-2xl xl:text-3xl 
+              text-xs font-desc font-semibold sm:text-base  md:text-xl lg:text-2xl xl:text-3xl 
               max-w-[90%] sm:max-w-[80%] md:max-w-[70%] 
               drop-shadow-md transition-opacity duration-700 
               ${activeIndex === index ? "opacity-100 animate-slideIn delay-300" : "opacity-0"}`}
@@ -74,22 +74,22 @@ function Slider() {
           </SwiperSlide>
         ))}
 
-        <div className="swiper-button-prev-custom absolute bottom-10 
+        <div className="swiper-button-prev-custom absolute bottom-6 md:bottom-10 
                 right-16  sm:right-28 md:right-20 lg:right-40 
                 bg-black bg-opacity-55 p-3 rounded-full z-10 
                 text-white text-lg md:text-2xl cursor-pointer hover:text-green-200 transition">
           <FaArrowLeft />
         </div>
 
-        <div className="swiper-button-next-custom absolute bottom-10 
+        <div className="swiper-button-next-custom absolute bottom-6 md:bottom-10  
                 right-4 sm:right-16 md:right-36 lg:right-24 
                 bg-black bg-opacity-55 p-3 rounded-full z-10 
-                text-white text-lg sm:text-xl md:text-2xl cursor-pointer hover:text-green-200 transition">
+                text-white  text-lg sm:text-xl md:text-2xl cursor-pointer hover:text-green-200 transition">
           <FaArrowRight />
         </div>
 
       </Swiper>
-       <SliderGallery/>
+      <SliderGallery />
     </div>
   );
 }

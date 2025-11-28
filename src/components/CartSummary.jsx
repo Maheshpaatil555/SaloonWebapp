@@ -78,10 +78,10 @@ export default function CartSummary({ selectedStart }) {
 
   return (
     <div className="p-4 mt-4 bg-[#f9f8f7] shadow-xl rounded-2xl">
-      <h3 className="text-black text-2xl font-bold mb-2">Cart Summary</h3>
+      <h3 className=" text-2xl font-head text-[#5f433e] mb-2">Cart Summary</h3>
 
       {cart.length === 0 ? (
-        <div className="text-sm text-center text-[#5f433e]">No items</div>
+        <div className="text-sm text-center font-desc py-4 text-[#5f433e]">No items</div>
       ) : (
         cart.map((item) => (
           <div
@@ -89,10 +89,10 @@ export default function CartSummary({ selectedStart }) {
             className="flex justify-between items-center border rounded p-2 mb-2"
           >
             <div>
-              <div className="font-medium text-[#5f433e]">{item.name}</div>
+              <div className="font-medium font-desc text-[#5f433e]">{item.name}</div>
             </div>
             <div className="flex items-center gap-2">
-              <div className="text-[#5f433e]">₹{item.price}</div>
+              <div className="text-[#5f433e] font-desc">₹{item.price}</div>
               <button
                 onClick={() => dispatch(removeFromCart(item.id))}
                 className="text-sm text-red-500"
@@ -105,14 +105,14 @@ export default function CartSummary({ selectedStart }) {
       )}
 
       <div className="pt-2 border-t">
-        <div className="font-bold text-black">Total: ₹{totalPrice}</div>
+        <div className="font-bold font-desc text-black">Total: ₹{totalPrice}</div>
         {endTime && <div className="mt-2">Estimated end: {endTime}</div>}
-        <button
+       
+         <button 
           onClick={handleBook}
-          className="mt-3 w-full border border-black text-black p-2 rounded"
-        >
-          Book Appointment
-        </button>
+         className="text-[#5f433e] border font-desc font-semibold mt-2 border-gray-400 w-full px-16 py-2 rounded transition duration-300 hover:bg-[#5f433e] hover:text-white">
+            View More
+          </button>
       </div>
     </div>
   );

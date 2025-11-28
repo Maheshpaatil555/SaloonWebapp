@@ -11,13 +11,12 @@ function Header() {
 
     return (
         <>
-            {/* Desktop Header (md and above) */}
             <div className='h-[85px] hidden md:flex px-4 justify-between 
                             fixed top-0 w-full bg-opacity-80 bg-[#f8f2f2] z-[999] shadow-md'>
 
                 <img className='ps-8' src='./assist/Logos.png' alt='logo' />
 
-                <div className='flex text-black cursor-pointer items-center gap-20 font-bold text-xl pr-10'>
+                <div className='flex text-black cursor-pointer items-center md:gap-14 lg:gap-20 font-bold text-xl pr-10'>
                     <p>Home</p>
                     <div className="relative group">
                         <p>Pages</p>
@@ -47,9 +46,9 @@ function Header() {
             </div>
 
             {/* Mobile Header */}
-            <div className="flex md:hidden h-[70px] px-4 justify-between items-center fixed top-0 w-full bg-[#f8f2f2] bg-opacity-80 z-[999] shadow-md">
-                <img className="h-10" src="./assist/Logos.png" alt="logo" />
-                <button onClick={toggleMobileMenu}>
+            <div className="flex md:hidden h-[70px] px-4 justify-between items-center fixed top-0 w-full bg-[#f8f2f2]  z-[999] ">
+                <img className="h-14" src="./assist/Logos.png" alt="logo" />
+                <button className='text-[#5f433e]' onClick={toggleMobileMenu}>
                     {isMobileMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
                 </button>
             </div>
@@ -61,13 +60,13 @@ function Header() {
                 }`}
             >
                 <div className="flex flex-col pt-6 text-white">
-                    <NavLink onClick={toggleMobileMenu} to="/" className="px-4 py-3 hover:bg-gray-800 transition">Home</NavLink>
-                    <NavLink onClick={toggleMobileMenu} to="/bookapoiment" className="px-4 py-3 hover:bg-gray-800 transition">Book Appointment</NavLink>
-                    <NavLink onClick={toggleMobileMenu} to="/Gallery" className="px-4 py-3 hover:bg-gray-800 transition">Gallery</NavLink>
-                      <NavLink onClick={toggleMobileMenu} to='/Review' ><p className="px-4 py-3 hover:bg-gray-800 cursor-pointer transition">Review</p></NavLink>
-                    <NavLink onClick={toggleMobileMenu} to="/About" className="px-4 py-3 hover:bg-gray-800 transition">About</NavLink>
-                    <NavLink onClick={toggleMobileMenu} to="/contact" className="px-4 py-3 hover:bg-gray-800 transition">Contact</NavLink>
-                    <p className="px-4 py-3 hover:bg-gray-800 cursor-pointer transition">User</p>
+                    <NavLink onClick={toggleMobileMenu} to="/" className="mobile-header">Home</NavLink>
+                    <NavLink onClick={toggleMobileMenu} to="/bookapoiment" className="mobile-header">Book Appointment</NavLink>
+                    <NavLink onClick={toggleMobileMenu} to="/Gallery" className="mobile-header">Gallery</NavLink>
+                      <NavLink onClick={toggleMobileMenu} to='/Review' ><p className="mobile-header">Review</p></NavLink>
+                    <NavLink onClick={toggleMobileMenu} to="/About" className="mobile-header">About</NavLink>
+                    <NavLink onClick={toggleMobileMenu} to="/contact" className="mobile-header">Contact</NavLink>
+                    <p className="mobile-header">User</p>
                 </div>
             </div>
         </>

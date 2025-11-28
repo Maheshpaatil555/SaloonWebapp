@@ -34,7 +34,7 @@ function Review() {
                   className="w-10 md:w-16 h-10  md:h-16 rounded-full border-2 border-gray-200"
                 />
                 <div className="ml-4">
-                  <p className="text-lg font-semibold text-gray-800">{review.name}</p>
+                  <p className="text-lg font-hero  text-gray-800">{review.name}</p>
                   <p className="text-sm text-gray-500">{review.date}</p>
                 </div>
               </div>
@@ -42,12 +42,12 @@ function Review() {
                 {[...Array(5)].map((_, i) => <Star key={i} />)}
               </div>
             </div>
-            <p className="text-gray-700 text-xs md:text-lg leading-relaxed">{review.message}</p>
+            <p className="text-[#895e58] text-xs font-desc md:text-lg leading-relaxed">{review.message}</p>
           </div>
         ))}
         <div className="flex justify-center mt-5">
-            <NavLink to='https://www.google.com/maps/place/Kala+Hair+Art+%26+Ladies+Beauty+Parlour/@22.2947364,73.2004387,643m/data=!3m1!1e3!4m6!3m5!1s0x395fc8acd8cf46b9:0x6f189f0812c93ec!8m2!3d22.2945775!4d73.2034437!16s%2Fg%2F1w663tc3!5m1!1e2?entry=ttu&g_ep=EgoyMDI1MTEyMy4xIKXMDSoASAFQAw%3D%3D'>
-          <button className="text-black border border-gray-400 px-16 py-2 rounded transition duration-300 hover:bg-[#5f433e] hover:text-white">
+            <NavLink to='https://www.google.com/maps/dir//Shop+No-1-2,+Bhagyodaya+House,+Guru+Nanak+Marg,+opposite+Patel+Party+Plot,+Moti+Tamboli,+Sultanpura,+Vadodara,+Gujarat+390001/@21.1686663,72.8633633,2261m/data=!3m1!1e3!4m8!4m7!1m0!1m5!1m1!1s0x395fc8acd8cf46b9:0x6f189f0812c93ec!2m2!1d73.2034437!2d22.2945775!5m1!1e2?entry=ttu&g_ep=EgoyMDI1MTEyMy4xIKXMDSoASAFQAw%3D%3D'>
+          <button className="text-[#5f433e] border font-desc font-semibold border-gray-400 px-16 py-2 rounded transition duration-300 hover:bg-[#5f433e] hover:text-white">
             View More
           </button>
           </NavLink>

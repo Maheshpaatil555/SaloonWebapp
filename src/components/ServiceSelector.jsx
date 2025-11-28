@@ -30,7 +30,7 @@ export default function ServiceSelector() {
             className="flex justify-between items-center cursor-pointer"
             onClick={() => setOpenIndex(openIndex === i ? null : i)}
           >
-            <span className="ps-1 font-medium">{cat.category}</span>
+            <span className="ps-1  font-medium">{cat.category}</span>
             <ChevronDown
               size={20}
               className={`text-black transition-transform duration-300 ${
@@ -48,8 +48,8 @@ export default function ServiceSelector() {
               {cat.services.map((s) => (
                 <div
                   key={s.id}
-                  className={`p-3 text-gray-700 hover:bg-[#f9f8f7] hover:rounded-lg cursor-pointer ${
-                    cartItems.some((item) => item.id === s.id) ? "opacity-50 cursor-not-allowed" : ""
+                  className={`p-3 text-gray-700 font-desc hover:bg-[#f9f8f7] hover:rounded-lg cursor-pointer ${
+                    cartItems.some((item) => item.id === s.id) ? "opacity-50  cursor-not-allowed" : ""
                   }`}
                   onClick={() => handleAddToCart(s)}
                 >

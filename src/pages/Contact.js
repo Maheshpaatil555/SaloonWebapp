@@ -46,11 +46,11 @@ function Contact() {
 
   return (
     <div className="mb-8">
-      <Hero title={"CONTACT"} bgImage="/assist/baan.jpg"  />
+      <Hero title={"CONTACT"} bgImage="/assist/baan.jpg" />
 
-      <div className="w-full px-3 md:px-0 min-h-screen flex justify-center items-center">
+      <div className="w-full px-6 md:px-0 min-h-screen flex justify-center items-center">
         <div className="w-full mt-8 rounded-ss-[100px] rounded-se-[100px] md:rounded-ss-[200px] mb-10 xl:w-3/4 lg:w-11/12 flex flex-col md:flex-row shadow-lg">
-          
+
           <div
             className="w-full rounded-ss-[100px] rounded-se-[100px] md:rounded-ss-[200px] md:rounded-se-[0px] md:w-5/12 h-80 md:h-auto bg-center md:bg-cover
     bg-cover bg-no-repeat"
@@ -60,32 +60,32 @@ function Contact() {
           ></div>
 
           <div className="w-full bg-[#f8f2f2] md:w-7/12 p-10">
-              <span className="relative text-[#5f433e] underline underline-offset-8  font-bold text-4xl">Your Message
-               <div className="absolute  -right-8 -top-1">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 512 512"
-              width="30"
-              height="30"
-              className="animate-slow-rotate"
-            >
-              <defs>
-                <linearGradient id="starGradient" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stopColor="#FF7C57" />
-                  <stop offset="50%" stopColor="#9B5DE5" />
-                  <stop offset="100%" stopColor="#3A86FF" />
-                </linearGradient>
-              </defs>
-              <path
-                d="M256 0
+            <span className="relative text-[#5f433e] underline underline-offset-8 font-head text-4xl">Your Message
+              <div className="absolute  -right-8 -top-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 512 512"
+                  width="30"
+                  height="30"
+                  className="animate-slow-rotate"
+                >
+                  <defs>
+                    <linearGradient id="starGradient" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stopColor="#FF7C57" />
+                      <stop offset="50%" stopColor="#9B5DE5" />
+                      <stop offset="100%" stopColor="#3A86FF" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    d="M256 0
                    C256 100 100 256 0 256
                    C100 256 256 412 256 512
                    C256 412 412 256 512 256
                    C412 256 256 100 256 0Z"
-                fill="url(#starGradient)"
-              />
-            </svg>
-          </div>
+                    fill="url(#starGradient)"
+                  />
+                </svg>
+              </div>
             </span>
 
             <form className="pt-6" onSubmit={handleSubmit}>
@@ -95,16 +95,15 @@ function Contact() {
                   Name
                 </label>
                 <input
-                  className={`w-full text-black px-3 py-2 border rounded shadow ${
-                    errors.name ? "border-red-500" : ""
-                  }`}
+                  className={`w-full text-gray-500 px-3 py-2 border rounded shadow ${errors.name ? "border-red-500" : ""
+                    }`}
                   type="text"
                   name="name"
                   placeholder="Your Name"
                   value={formData.name}
                   onChange={handleChange}
                 />
-                {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
+                {errors.name && <p className="text-red-500  mt-1 text-sm">{errors.name}</p>}
               </div>
 
               {/* Phone */}
@@ -113,16 +112,15 @@ function Contact() {
                   Phone Number
                 </label>
                 <input
-                  className={`w-full text-black px-3 py-2 border rounded shadow ${
-                    errors.phone ? "border-red-500" : ""
-                  }`}
+                  className={`w-full text-gray-500 px-3 py-2 border rounded shadow ${errors.phone ? "border-red-500" : ""
+                    }`}
                   type="text"
                   name="phone"
                   placeholder="Your Number"
                   value={formData.phone}
                   onChange={handleChange}
                 />
-                {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
+                {errors.phone && <p className="text-red-500 mt-1 text-sm">{errors.phone}</p>}
               </div>
 
               {/* Email */}
@@ -131,27 +129,25 @@ function Contact() {
                   Email
                 </label>
                 <input
-                  className={`w-full text-black px-3 py-2 border rounded shadow ${
-                    errors.email ? "border-red-500" : ""
-                  }`}
+                  className={`w-full text-gray-500 px-3 py-2 border rounded shadow ${errors.email ? "border-red-500" : ""
+                    }`}
                   type="email"
                   name="email"
                   placeholder="Your Email"
                   value={formData.email}
                   onChange={handleChange}
                 />
-                {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
+                {errors.email && <p className="text-red-500 mt-1 text-sm">{errors.email}</p>}
               </div>
 
               {/* Message */}
               <div className="mb-4">
-                <label className="block mb-2 text-sm font-bold text-[#895e58]">
+                <label className="block  mb-2 text-sm font-bold text-[#895e58]">
                   Message
                 </label>
                 <textarea
-                  className={`w-full text-black px-3 py-2 border rounded shadow ${
-                    errors.message ? "border-red-500" : ""
-                  }`}
+                  className={`w-full text-gray-500  px-3 py-2 border rounded shadow ${errors.message ? "border-red-500" : ""
+                    }`}
                   rows="4"
                   name="message"
                   placeholder="Your Message"
@@ -163,11 +159,10 @@ function Contact() {
                 )}
               </div>
 
-              {/* Submit */}
-              <div className="text-center mb-6">
+              <div className="text-center pt-6">
                 <button className="text-black border border-gray-400 px-16 py-2 rounded transition duration-300 hover:bg-[#5f433e] hover:text-white">
-            Submit
-          </button>
+                  Submit
+                </button>
               </div>
             </form>
           </div>
