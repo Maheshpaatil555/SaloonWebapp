@@ -7,6 +7,15 @@ body {
   color: white;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scrollbar-width: none;
+}
+
+
 .nav-link {
   @apply text-[#895e58] font-desc hover:ps-1 font-semibold cursor-pointer transition-all duration-300;
 }

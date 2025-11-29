@@ -15,7 +15,7 @@ const Star = () => <span className="text-yellow-400">★</span>;
 function Review() {
   return (
     <div className="container mx-auto">
-      <Hero title='Review'/>
+      <Hero title='Review' bgImage="/assist/poster.jpg"/>
       <div className="grid md:px-60 px-5 mb-11 mt-11 grid-cols-1 md:grid-cols-1 gap-8">
         {reviews.map((review, index) => (
           <div

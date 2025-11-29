@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useRef, useEffect } from "react";
 import { format, addDays } from "date-fns";
 
 export default function DateTimePicker({ bookings = [], onSelect }) {
@@ -7,6 +7,42 @@ export default function DateTimePicker({ bookings = [], onSelect }) {
   const [openDate, setOpenDate] = useState(false);
   const [openTime, setOpenTime] = useState(false);
 
+  const dateRef = useRef(null);
+  const timeRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (
+        dateRef.current &&
+        !dateRef.current.contains(e.target) &&
+        openDate
+      ) {
+        setOpenDate(false);
+      }
+      if (
+        timeRef.current &&
+        !timeRef.current.contains(e.target) &&
+        openTime
+      ) {
+        setOpenTime(false);
+      }
+    };
+
+    const handleScroll = () => {
+      if (openDate) setOpenDate(false);
+      if (openTime) setOpenTime(false);
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [openDate, openTime]);
+
+  // ---- your remaining code unchanged ----
   const blockedRanges = useMemo(() => {
     if (!date) return [];
     return bookings
@@ -30,7 +66,6 @@ export default function DateTimePicker({ bookings = [], onSelect }) {
     onSelect?.({ date, time: t });
   };
 
-  // Time slots
   const times = [];
   for (let h = 9; h <= 20; h++) {
     for (let m = 0; m < 60; m += 15) {
@@ -38,7 +73,6 @@ export default function DateTimePicker({ bookings = [], onSelect }) {
     }
   }
 
-  // Simple next 30 days calendar
   const next30Days = Array.from({ length: 30 }, (_, i) =>
     format(addDays(new Date(), i), "yyyy-MM-dd")
   );
@@ -47,7 +81,7 @@ export default function DateTimePicker({ bookings = [], onSelect }) {
     <div className="w-full flex flex-col sm:flex-row gap-3">
 
       {/* Date Picker */}
-      <div className="relative w-full sm:w-1/2">
+      <div className="relative w-full sm:w-1/2" ref={dateRef}>
         <button
           onClick={() => {
             setOpenDate(!openDate);
@@ -59,7 +93,7 @@ export default function DateTimePicker({ bookings = [], onSelect }) {
         </button>
 
         {openDate && (
-          <div className="absolute mt-2 bg-zinc-800 p-3 rounded-xl shadow border border-zinc-700 z-20 w-full max-w-xs sm:max-w-full grid grid-cols-3 gap-2 overflow-y-auto max-h-64">
+          <div className="absolute mt-2 bg-white p-3 rounded-xl shadow border border-zinc-700 z-20 w-full max-w-xs sm:max-w-full grid grid-cols-3 gap-2 overflow-y-auto max-h-64">
             {next30Days.map((d) => (
               <button
                 key={d}
@@ -67,7 +101,7 @@ export default function DateTimePicker({ bookings = [], onSelect }) {
                 className={`py-2 rounded-lg text-xs font-semibold ${
                   d === date
                     ? "bg-pink-600 text-white"
-                    : "bg-zinc-700 text-white hover:bg-zinc-600"
+                    : "bg-[#f8f2f2] text-[#6f5450] hover:bg-[#d4c5c5]"
                 }`}
               >
                 {format(new Date(d), "dd MMM")}
@@ -78,7 +112,7 @@ export default function DateTimePicker({ bookings = [], onSelect }) {
       </div>
 
       {/* Time Picker */}
-      <div className="relative w-full sm:w-1/2">
+      <div className="relative w-full sm:w-1/2" ref={timeRef}>
         <button
           onClick={() => {
             setOpenTime(!openTime);
@@ -90,7 +124,7 @@ export default function DateTimePicker({ bookings = [], onSelect }) {
         </button>
 
         {openTime && (
-          <div className="absolute z-20 mt-2 bg-zinc-800 p-3 rounded-xl shadow border border-zinc-700 max-h-52 overflow-y-auto grid grid-cols-3 gap-2 w-full">
+          <div className="absolute z-20 mt-2 bg-white p-3 rounded-xl shadow border border-zinc-700 max-h-52 overflow-y-auto grid grid-cols-3 gap-2 w-full">
             {times.map((t) => {
               const blocked = isBlocked(t);
               const selected = t === time;
@@ -107,7 +141,7 @@ export default function DateTimePicker({ bookings = [], onSelect }) {
                         ? "bg-red-900 text-red-400 opacity-40 cursor-not-allowed"
                         : selected
                         ? "bg-pink-600 text-white"
-                        : "bg-zinc-700 text-white hover:bg-zinc-600"
+                        : "bg-[#f8f2f2] text-[#6f5450] hover:bg-[#d4c5c5]"
                     }
                   `}
                 >

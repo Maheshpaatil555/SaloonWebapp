@@ -11,15 +11,13 @@ const demoMovies = [
   { id: 3, title: "Pushpa", poster_path: "./assist/gallery/img3.jpg" },
   { id: 4, title: "Salaar", poster_path: "./assist/gallery/img4.jpg" },
   { id: 5, title: "Animal", poster_path: "./assist/gallery/img5.jpg"},
-   { id: 5, title: "Animal", poster_path: "./assist/gallery/img6.jpg" },
+  { id: 6, title: "Animal 2", poster_path: "./assist/gallery/img6.jpg" },
 ];
 
 function SliderGallery() {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   const [swiperInstance, setSwiperInstance] = useState(null);
-
-
 
   useEffect(() => {
     if (swiperInstance && prevRef.current && nextRef.current) {
@@ -32,18 +30,15 @@ function SliderGallery() {
   }, [swiperInstance]);
 
   return (
-    <div className=" text-white relative">
-      <div className="flex justify-between md:p-8 md:pb-3 md:ps-0 md:pr-0 p-4 pr-5 py-6 pb-1 items-center" >
-         <h2 className="text-xl md:text-4xl font-head text-[#5f433e] ">
-        GALLERY
-      </h2>
-    <NavLink to='./Gallery'><p className="text-slate-950 text-base md:text-lg font-desc">view more</p></NavLink>
-
+    <div className="text-white relative">
+      <div className="flex justify-between md:p-8 md:pb-3 md:ps-0 md:pr-0 p-4 pr-5 py-6 pb-1 items-center">
+        <h2 className="text-xl md:text-4xl font-head text-[#5f433e] ">GALLERY</h2>
+        <NavLink to='./Gallery'>
+          <p className="text-slate-950 text-base md:text-lg font-desc">view more</p>
+        </NavLink>
       </div>
-     
 
       <div className="relative mx-3 md:mx-0">
-
         <Swiper
           modules={[Navigation, Autoplay]}
           onSwiper={setSwiperInstance}
@@ -61,17 +56,7 @@ function SliderGallery() {
           {demoMovies.map((movie) => (
             <SwiperSlide key={movie.id}>
               <div className="group relative py-5 rounded-2xl cursor-pointer hover:scale-105 duration-300">
-
-                <img
-                  src={movie.poster_path}
-                  className="w-full h-40 md:h-80 rounded-2xl object-cover group-hover:grayscale duration-300"
-                />
-
-                {/* <div className="absolute bottom-5 inset-0 flex items-end p-3 bg-gradient-to-t from-black/80">
-                  <h3 className="text-lg font-normal text-center w-full group-hover:text-yellow-400">
-                    {movie.title}
-                  </h3>
-                </div> */}
+                <ImageWithSkeleton src={movie.poster_path} alt={movie.title} className="w-full h-40 md:h-80 rounded-2xl object-cover group-hover:grayscale duration-300" />
               </div>
             </SwiperSlide>
           ))}
@@ -93,8 +78,23 @@ function SliderGallery() {
         >
           <FaArrowRight />
         </div>
-
       </div>
+    </div>
+  );
+}
+
+function ImageWithSkeleton({ src, alt, className }) {
+  const [loaded, setLoaded] = useState(false);
+
+  return (
+    <div className="relative w-full h-full">
+      {!loaded && <div className="absolute inset-0 bg-gray-300 animate-pulse rounded-2xl"></div>}
+      <img
+        src={src}
+        alt={alt}
+        onLoad={() => setLoaded(true)}
+        className={`${className} transition-opacity duration-500 ${loaded ? 'opacity-100' : 'opacity-0'}`}
+      />
     </div>
   );
 }

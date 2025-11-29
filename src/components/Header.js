@@ -4,43 +4,61 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 
 function Header() {
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [openPages, setOpenPages] = useState(false); // <-- NEW state
 
     const toggleMobileMenu = () => {
         setMobileMenuOpen(!isMobileMenuOpen);
     };
 
+    const closeDropdown = () => setOpenPages(false);
+
     return (
         <>
+            {/* Desktop Header */}
             <div className='h-[85px] hidden md:flex px-4 justify-between 
                             fixed top-0 w-full bg-opacity-80 bg-[#f8f2f2] z-[999] shadow-md'>
 
                 <img className='ps-8' src='./assist/Logos.png' alt='logo' />
 
                 <div className='flex text-black cursor-pointer items-center md:gap-14 lg:gap-20 font-bold text-xl pr-10'>
-                    <p>Home</p>
-                    <div className="relative group">
-                        <p>Pages</p>
-                        <div className="absolute font-thin z-50 -left-3 mt-1 hidden group-hover:block 
-                               bg-opacity-70 bg-blue-50 text-black shadow-lg rounded-lg w-48 py-2">
-                            <NavLink to='/bookapoiment'>
-                                <p className="px-2 py-2 text-lg hover:bg-gray-200 hover:ps-3 cursor-pointer transition-all duration-300">
-                                    Book Appointment
-                                </p>
-                            </NavLink>
-                            <NavLink to='/Gallery'>
-                                <p className="px-2 py-2 text-lg hover:bg-gray-200 hover:ps-3 cursor-pointer transition-all duration-300">
-                                    Gallery
-                                </p>
-                            </NavLink>
-                              <NavLink to='/Review'>
-                            <p className="px-2 py-2 text-lg hover:bg-gray-200 hover:ps-3 cursor-pointer transition-all duration-300">
-                                Review
-                            </p>
-                            </NavLink>
-                        </div>
+                    <NavLink to='/'> <p>Home</p></NavLink>
+
+                    {/* ---- UPDATED DROPDOWN ---- */}
+                    <div
+                        className="relative"
+                        onMouseEnter={() => setOpenPages(true)}
+                        onMouseLeave={() => setOpenPages(false)}
+                    >
+                        <p className="cursor-pointer">Pages</p>
+
+                        {openPages && (
+                            <div className="absolute font-thin z-50 -left-3 mt-1
+                                    bg-opacity-70 bg-blue-50 text-black shadow-lg 
+                                    rounded-lg w-48 py-2">
+
+                                <NavLink to='/bookapoiment' onClick={closeDropdown}>
+                                    <p className="px-2 py-2 text-lg hover:bg-gray-200 hover:ps-3 transition-all duration-300">
+                                        Book Appointment
+                                    </p>
+                                </NavLink>
+
+                                <NavLink to='/Gallery' onClick={closeDropdown}>
+                                    <p className="px-2 py-2 text-lg hover:bg-gray-200 hover:ps-3 transition-all duration-300">
+                                        Gallery
+                                    </p>
+                                </NavLink>
+
+                                <NavLink to='/Review' onClick={closeDropdown}>
+                                    <p className="px-2 py-2 text-lg hover:bg-gray-200 hover:ps-3 transition-all duration-300">
+                                        Review
+                                    </p>
+                                </NavLink>
+                            </div>
+                        )}
                     </div>
+
                     <NavLink to='/About'><p>About</p></NavLink>
-                    <NavLink to='/contact'><p>Contact</p>  </NavLink>
+                    <NavLink to='/contact'><p>Contact</p></NavLink>
                     <p>User</p>
                 </div>
             </div>
@@ -53,17 +71,17 @@ function Header() {
                 </button>
             </div>
 
-            {/* Mobile Menu with transition and bg black */}
+            {/* Mobile Menu */}
             <div
-                className={`md:hidden fixed top-[70px] left-0 w-full h-screen bg-black bg-opacity-75 z-50 transform transition-transform duration-300 ease-in-out ${
+                className={`md:hidden fixed top-[70px] left-0 w-full h-screen bg-black bg-opacity-85 z-50 transform transition-transform duration-300 ease-in-out ${
                     isMobileMenuOpen ? "translate-y-0" : "-translate-y-full"
                 }`}
             >
-                <div className="flex flex-col pt-6 text-white">
+                <div className="flex flex-col ps-1 pt-6 text-white">
                     <NavLink onClick={toggleMobileMenu} to="/" className="mobile-header">Home</NavLink>
                     <NavLink onClick={toggleMobileMenu} to="/bookapoiment" className="mobile-header">Book Appointment</NavLink>
                     <NavLink onClick={toggleMobileMenu} to="/Gallery" className="mobile-header">Gallery</NavLink>
-                      <NavLink onClick={toggleMobileMenu} to='/Review' ><p className="mobile-header">Review</p></NavLink>
+                    <NavLink onClick={toggleMobileMenu} to='/Review'><p className="mobile-header">Review</p></NavLink>
                     <NavLink onClick={toggleMobileMenu} to="/About" className="mobile-header">About</NavLink>
                     <NavLink onClick={toggleMobileMenu} to="/contact" className="mobile-header">Contact</NavLink>
                     <p className="mobile-header">User</p>

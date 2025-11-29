@@ -6,12 +6,12 @@ import { addToCart } from "../features/booking/bookingSlice";
 export default function ServiceSelector() {
   const dispatch = useDispatch();
   const allServices = useSelector((s) => s.booking.allServices);
-  const cartItems = useSelector((s) => s.booking.cart); // assuming cart slice is named 'cart'
+  const cartItems = useSelector((s) => s.booking.cart); 
+  console.log(allServices)
 
   const [openIndex, setOpenIndex] = useState(null);
 
   const handleAddToCart = (service) => {
-    // check if item is already in cart
     const alreadyInCart = cartItems.some((item) => item.id === service.id);
 
     if (!alreadyInCart) {
@@ -41,19 +41,19 @@ export default function ServiceSelector() {
 
           <div
             className={`overflow-hidden transition-all duration-300 ${
-              openIndex === i ? "max-h-[500px] mt-2 opacity-100" : "max-h-0 opacity-0"
+              openIndex === i ? "mt-2 opacity-100" : "max-h-0 opacity-0"
             }`}
           >
             <div className="border rounded-lg bg-white shadow">
               {cat.services.map((s) => (
                 <div
                   key={s.id}
-                  className={`p-3 text-gray-700 font-desc hover:bg-[#f9f8f7] hover:rounded-lg cursor-pointer ${
+                  className={`p-3 text-[#6f5450] font-desc hover:bg-[#f9f8f7] hover:rounded-lg cursor-pointer ${
                     cartItems.some((item) => item.id === s.id) ? "opacity-50  cursor-not-allowed" : ""
                   }`}
                   onClick={() => handleAddToCart(s)}
                 >
-                  {s.name} — ₹{s.price}
+                  {s.name} {s.price ? ` — ₹${s.price}` : "" }
                 </div>
               ))}
             </div>

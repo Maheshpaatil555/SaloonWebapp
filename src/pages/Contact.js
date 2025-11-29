@@ -55,7 +55,7 @@ function Contact() {
             className="w-full rounded-ss-[100px] rounded-se-[100px] md:rounded-ss-[200px] md:rounded-se-[0px] md:w-5/12 h-80 md:h-auto bg-center md:bg-cover
     bg-cover bg-no-repeat"
             style={{
-              backgroundImage: "url('/assist/gallery/img5.jpg')",
+              backgroundImage: "url('/assist/contact.png')",
             }}
           ></div>
 

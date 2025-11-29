@@ -4,7 +4,7 @@ import Hero from "../components/Hero";
 function About() {
   return (
     <div className="mb-2">
-     <Hero title="ABOUT" bgImage="/assist/banner.jpg" />
+     <Hero title="ABOUT" bgImage="/assist/poster3.jpg" />
       <div className="w-full px-6 md:px-0 min-h-screen flex justify-center items-center">
         <div className="w-full mt-8 md:rounded-se-[200px] rounded-ss-[100px] rounded-se-[100px] 
              md:rounded-ss-[0px] mb-10 xl:w-3/4 lg:w-11/12 flex flex-col-reverse md:flex-row shadow-lg">
@@ -56,7 +56,7 @@ function About() {
              md:rounded-ss-[0px] md:w-5/12 h-80 md:h-auto  bg-center md:bg-cover
     bg-cover bg-no-repeat"
   style={{
-    backgroundImage: "url('/assist/gallery/img5.jpg')",
+    backgroundImage: "url('/assist/imgabout.png')",
   }}
 ></div>
 
